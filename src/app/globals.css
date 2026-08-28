@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/*
+ * Dark charcoal + classic.
+ * Reference: matveyan.com — high-contrast minimalism, information clarity,
+ * wide-tracked uppercase micro-labels, hairline separation instead of shadows.
+ * The "classic" counterpoint is typographic: a display serif against a neutral sans.
+ *
+ * Every colour the app uses is declared here. Changing the palette is one file.
+ */
+:root {
+  --bg: #0a0b0c;
+  --surface: #131517;
+  --surface-2: #1a1d20;
+  --hairline: #26292d;
+  --hairline-strong: #363a3f;
+
+  --text: #ecedee;
+  --text-dim: #8a9199;
+  --text-faint: #5a6169;
+
+  --accent: #c9a961;
+  --accent-dim: #8a733f;
+
+  --up: #4ade80;
+  --down: #f87171;
+  --warn: #fbbf24;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-text: var(--text);
+  --color-text-dim: var(--text-dim);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-warn: var(--warn);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-jetbrains);
+}
+
+* {
+  border-color: var(--hairline);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Figures must line up — that is what makes a financial dashboard feel serious. */
+.tnum {
+  font-family: var(--font-jetbrains), ui-monospace, "SF Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Wide-tracked uppercase micro-label, taken straight from the reference. */
+.label {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.serif {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border: 2px solid var(--bg);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
