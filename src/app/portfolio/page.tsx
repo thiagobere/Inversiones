@@ -116,7 +116,35 @@ export default function PortfolioPage() {
         {p.transactions.length === 0 ? (
           <Empty title="Sin transacciones registradas" />
         ) : (
-          <div className="-mx-5 overflow-x-auto px-5">
+          <>
+            {/* Phone: one stacked entry per operation instead of a 640px table. */}
+            <ul className="md:hidden">
+              {[...p.transactions].reverse().map((t) => (
+                <li key={t.id} className="flex items-start justify-between gap-3 border-b border-hairline/60 py-3.5 first:pt-0 last:border-0 last:pb-0">
+                  <div className="min-w-0">
+                    <p className="tnum text-text">
+                      {t.symbol}{' '}
+                      <span className={t.type === 'buy' ? 'text-up' : 'text-down'}>
+                        {t.type === 'buy' ? 'compra' : 'venta'}
+                      </span>
+                    </p>
+                    <p className="tnum mt-1 text-xs text-text-faint">
+                      {fmtDate(t.executed_at)}
+                      {t.fees > 0 && <> · comisión {fmtNum(t.fees, 2)}</>}
+                    </p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <p className="tnum text-text-dim">{fmtNum(t.quantity, 4)} × {fmtNum(t.price, 2)}</p>
+                    <button disabled={busy} onClick={() => removeTransaction(t.id)}
+                      className="label mt-1 text-text-faint transition-colors hover:text-down disabled:opacity-40">
+                      Borrar
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="-mx-5 hidden overflow-x-auto px-5 md:block">
             <table className="w-full min-w-[640px] border-collapse text-sm">
               <thead>
                 <tr className="border-b border-hairline">
@@ -148,6 +176,7 @@ export default function PortfolioPage() {
               </tbody>
             </table>
           </div>
+          </>
         )}
       </Card>
 

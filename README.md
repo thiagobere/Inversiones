@@ -58,6 +58,13 @@ con un cartel que lo explica.
 Los activos en pesos se convierten a dólares al **CCL**; el total del portafolio se
 muestra también en pesos al **MEP**. La tasa usada siempre queda a la vista.
 
+## En el celular
+
+La app está pensada primero para el teléfono: barra de pestañas abajo (respetando el área
+segura del dispositivo), y las tablas —posiciones, seguimiento, transacciones— se apilan como
+filas en pantallas angostas en lugar de obligar a scrollear de costado. Desde `lg` la barra
+pasa a ser un panel lateral y las tablas vuelven a su forma de columnas.
+
 ## Fuentes de datos
 
 Todas públicas y sin API key:
