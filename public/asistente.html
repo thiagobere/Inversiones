@@ -82,6 +82,10 @@
       }
     }
 
+    if (location.protocol === 'file:') {
+      $('err').textContent = 'Abriste el archivo directo desde la compu: así Chrome pide el micrófono cada vez. Abrilo desde http://localhost o subilo a un hosting con HTTPS.';
+    }
+
     $('on').onclick = enable;
     $('now').onclick = wake;
     $('hang').onclick = () => session?.endSession();
