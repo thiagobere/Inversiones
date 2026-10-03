@@ -24,6 +24,10 @@ const LINKS = [
     href: '/alerts', label: 'Alertas',
     icon: <><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6" strokeLinejoin="round" /><path d="M10.5 20a2 2 0 0 0 3 0" strokeLinecap="round" /></>,
   },
+  {
+    href: '/asistente', label: 'Asistente',
+    icon: <><rect x="9" y="3" width="6" height="11" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" strokeLinecap="round" /></>,
+  },
 ];
 
 /**
